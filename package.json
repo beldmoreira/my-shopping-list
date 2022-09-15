@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache",
+    "test": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test prisma db seed && dotenv -e .env.test jest",
+    "start": "ts-node src/server.ts",
     "dev": "nodemon src/server.ts"
   },
   "keywords": [],
@@ -13,7 +14,7 @@
   "dependencies": {
     "@prisma/client": "^4.3.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.2",
     "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
     "joi": "^17.6.0",
